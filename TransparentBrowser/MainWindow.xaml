@@ -1,0 +1,32 @@
+﻿<Window x:Class="TransparentBrowser.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:cefSharp="clr-namespace:CefSharp.Wpf;assembly=CefSharp.Wpf"
+        xmlns:local="clr-namespace:TransparentBrowser"
+        mc:Ignorable="d"
+        Title="TransparentBrowser" Height="450" Width="800"
+        ResizeMode="CanResizeWithGrip"
+        WindowStyle="None" 
+        AllowsTransparency="True"
+        Topmost="True"
+        Loaded="Window_Loaded" PreviewMouseLeftButtonDown="Window_PreviewMouseLeftButtonDown">
+    <Grid Name="bg">
+        <TextBlock HorizontalAlignment="Stretch" Margin="5" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Stretch" xml:space="preserve" Name="helptxt" FontFamily="DejaVu Sans Mono" Visibility="Hidden">
+    Help:
+            
+        F1:         Toggle this help
+        F2/F3:      Increase/Decrease opacity
+        F5:         Refresh
+        F6:         Navigate (show address bar)
+        F8:         Close window
+        F9:         Toggle topmost
+        F11:        Toggle drag
+        F12:        Toggle resize
+        
+        </TextBlock>
+        <cefSharp:ChromiumWebBrowser Name="web" Opacity="0.8" FontFamily="DejaVu Sans Mono"/>
+        <TextBox x:Name="url" HorizontalAlignment="Stretch" Height="23" Margin="5" TextWrapping="Wrap" VerticalAlignment="Top" Visibility="Hidden" KeyDown="url_KeyDown"/>
+    </Grid>
+</Window>
